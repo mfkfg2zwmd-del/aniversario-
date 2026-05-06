@@ -1,0 +1,470 @@
+Crie um link de um site através desse código 
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Fedido! 💙</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Partículas de confete */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti:nth-child(odd) { background: #4ecdc4; animation-delay: 0.5s; }
+        .confetti:nth-child(even) { background: #feca57; animation-delay: 1s; }
+        .confetti:nth-child(3n) { background: #45b7d1; animation-delay: 1.5s; }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .idade {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .music-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            margin: 20px auto;
+            display: block;
+        }
+
+        .music-btn:hover {
+            background: white;
+            color: #ff6b6b;
+            transform: scale(1.05);
+        }
+
+        .bolo-container {
+            text-align: center;
+            margin: 60px 0;
+            perspective: 1000px;
+        }
+
+        .bolo {
+            display: inline-block;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .bolo-base {
+            width: 200px;
+            height: 120px;
+            background: linear-gradient(45deg, #d4a574, #c68642);
+            border-radius: 100px 100px 20px 20px;
+            margin: 0 auto 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .velas {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .vela {
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(to top, #f4e4bc, #fff);
+            border-radius: 4px 4px 0 0;
+            position: relative;
+            animation: velaChama 2s infinite alternate;
+        }
+
+        .chama {
+            width: 12px;
+            height: 20px;
+            background: radial-gradient(circle, #ffeb3b, #ff9800, #f44336);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px #ffeb3b;
+            animation: chamaDanca 0.5s infinite alternate;
+        }
+
+        @keyframes velaChama {
+            0% { box-shadow: 0 0 5px rgba(255,255,255,0.5); }
+            100% { box-shadow: 0 0 20px rgba(255,255,255,0.8); }
+        }
+
+        @keyframes chamaDanca {
+            0% { transform: translateX(-50%) translateY(0) rotate(-2deg); }
+            100% { transform: translateX(-50%) translateY(-2px) rotate(2deg); }
+        }
+
+        .soprar-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255,107,107,0.4);
+        }
+
+        .soprar-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255,107,107,0.6);
+        }
+
+        .vela-apagada .chama {
+            opacity: 0 !important;
+            animation: none !important;
+        }
+
+        .texto {
+            background: rgba(255,255,255,0.95);
+            padding: 40px;
+            border-radius: 25px;
+            margin: 40px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #333;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fotos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .foto {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .foto:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .extras {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .extra-card {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .extra-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .coracao {
+            font-size: 4rem;
+            animation: batimento 1.5s infinite;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @keyframes batimento {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .final {
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            margin-top: 40px;
+            text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .idade { font-size: 3rem; }
+            h1 { font-size: 2rem; }
+            .texto { padding: 20px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas de confete -->
+    <div id="confetti-container"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="idade">19 🎉</div>
+            <h1>Feliz Aniversário, Fedido! 😂💙</h1>
+            <button class="music-btn" onclick="toggleMusica()">
+                🎵 Birds of a Feather 💙
+            </button>
+        </div>
+
+        <div class="bolo-container">
+            <div class="bolo">
+                <div class="bolo-base"></div>
+                <div class="velas" id="velas">
+                    <div class="vela" data-vela="1"><div class="chama"></div></div>
+                    <div class="vela" data-vela="2"><div class="chama"></div></div>
+                    <div class="vela" data-vela="3"><div class="chama"></div></div>
+                </div>
+            </div>
+            <button class="soprar-btn" onclick="soprarVelas()">
+                💨 SOPRAR AS VELAS 💨
+            </button>
+        </div>
+
+        <div class="texto">
+            <p><strong>Feliz aniversário, fedido! 😂💙</strong><br>
+            Te desejo tudo de melhor, sério!<br><br>
+            
+            Hj é o dia da pessoa mais fedida e mais chatonilda que eu conheço KSSKSKKS, mas calma, é tudo com muito amor kkkkkk. Brincadeiras à parte, eu gosto muito de vc, de verdade. Eu nunca imaginei que, naquele dia lá em janeiro, entrando naquele jogo, eu ia encontrar alguém tão legal assim. Tipo, foi muito do nada, mas acabou virando uma das melhores coisas.<br><br>
+            
+            Vc se tornou uma pessoa muito especial pra mim, alguém que eu tenho um carinho enorme. E é engraçado, porque mesmo fazendo só quase 5 meses que a gente se conhece, parece que é muito mais tempo, sabe? Como se já fosse uma amizade antiga, de anos msm.<br><br>
+            
+            Eu amo nossos momentos juntos, principalmente quando a gente ficava horas em call conversando sobre tudo, rindo de besteira, implicando um com o outro, sendo idiota sem motivo kkkkk. São coisas simples, mas que significam muito pra mim. E mesmo que ultimamente a gente n esteja conseguindo fazer isso com tanta frequência por causa dos contratempos da vida de cada um, eu continuo valorizando muito tudo isso que a gente tem.<br><br>
+            
+            Vc é uma pessoa incrível, mesmo sendo insuportável às vezes kkkkk, e eu admiro muito o seu jeito, sua companhia, e até suas chatices. Eu espero de verdade que você continue sendo essa pessoa especial, e que a vida te dê tudo de melhor, felicidade, conquistas, paz, e tudo aquilo que você merece.<br><br>
+            
+            <strong>Aproveita MUITO o teu dia, tá? Curte mesmo, porque ele é todo seu. Quero te ver feliz, rindo. E pode ter certeza que eu tô muito feliz de ter você na minha vida. 💙 Te amo muitão, fedido. 🥳 REP BARDEI TIU IU 🥳</strong></p>
+        </div>
+
+        <div class="fotos">
+            <!-- SUBSTITUA pelas URLs das suas fotos -->
+            <img src="https://via.placeholder.com/400x300/ff6b6b/ffffff?text=FOTO+1" alt="Foto 1" class="foto" onclick="zoomFoto(this)">
+            <img src="https://via.placeholder.com/400x300/4ecdc4/ffffff?text=FOTO+2" alt="Foto 2" class="foto" onclick="zoomFoto(this)">
+            <img src="https://via.placeholder.com/400x300/45b7d1/ffffff?text=FOTO+3" alt="Foto 3" class="foto" onclick="zoomFoto(this)">
+            <img src="https://via.placeholder.com/400x300/feca57/ffffff?text=FOTO+4" alt="Foto 4" class="foto" onclick="zoomFoto(this)">
+        </div>
+
+        <div class="extras">
+            <div class="extra-card">
+                <span class="coracao">💙</span>
+                <h3>5 Meses de Amizade</h3>
+                <p>Mas parece uma vida toda! 🥰</p>
+            </div>
+            <div class="extra-card">
+                <span class="coracao">😂</span>
+                <h3>Mais de 1000 risadas</h3>
+                <p>Contadas nas nossas calls! kkkk</p>
+            </div>
+            <div class="extra-card">
+                <span class="coracao">🎮</span>
+                <h3>Amigo pra sempre</h3>
+                <p>Do jogo pra vida real! 💙</p>
+            </div>
+        </div>
+
+        <div class="final">
+            REP BARDEI TIU IU! 🥳🥳🥳
+        </div>
+    </div>
+
+    <audio id="musica" loop>
+        <!-- SUBSTITUA pelo link do Birds of a Feather -->
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let musicaTocando = false;
+        let todasVelasApagadas = false;
+
+        // Confetes
+        function criarConfetes() {
+            const container = document.getElementById('confetti-container');
+            setInterval(() => {
+                for(let i = 0; i < 5; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    container.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 5000);
+                }
+            }, 300);
+        }
+
+        // Música (use um link direto do YouTube ou arquivo)
+        function toggleMusica() {
+            const audio = document.getElementById('musica');
+            if (musicaTocando) {
+                audio.pause();
+                musicaTocando = false;
+            } else {
+                audio.play().catch(e => alert('Toque manualmente a música "Birds of a Feather" no YouTube! 🎵'));
+                musicaTocando = true;
+            }
+        }
+
+        // Soprar velas
+        function soprarVelas() {
+            if (todasVelasApagadas) {
+                alert('🎉 Todas as velas já foram apagadas! Parabéns! 🥳');
+                return;
+            }
+
+            const velas = document.querySelectorAll('.vela');
+            const velaAleatoria = Math.floor(Math.random() * velas.length);
+            velas[velaAleatoria].classList.add('vela-apagada');
+            
+            // Efeito de fumaça
+            criarFumaca(velas[velaAleatoria]);
+
+            if (document.querySelectorAll('.vela:not(.vela-apagada)').length === 0) {
+                todasVelasApagadas = true;
+                document.querySelector('.soprar-btn').innerHTML = '🎉 PARABÉNS! 🥳🥳🥳';
+                criarConfetes();
+            }
+        }
+
+        function criarFumaca(vela) {
+            const fumaca = document.createElement('div');
+            fumaca.style.cssText = `
+                position: absolute; top: -20px; left: 50%; 
+                width: 20px; height: 20px; 
+                background: rgba(200,200,200,0.7); 
+                border-radius: 50%; 
+                transform: translateX(-50%);
+                animation: fumaca 2s ease-out forwards;
+                pointer-events: none;
+                z-index: 100;
+            `;
+            vela.appendChild(fumaca);
+            
+            setTimeout(() => fumaca.remove(), 2000);
+        }
+
+        // Zoom nas fotos
+        function zoomFoto(img) {
+            img.style.transform = 'scale(1.5) rotate(5deg)';
+            setTimeout(() => {
+                img.style.transform = 'scale(1) rotate(0deg)';
+            }, 1000);
+        }
+
+        // Iniciar confetes
+        criarConfetes();
+
+        // Detectar sopro do microfone
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                const audioContext = new AudioContext();
+                const analyser = audioContext.createAnalyser();
+                const microphone = audioContext.createMediaStreamSource(stream);
+                microphone.connect(analyser);
+                
+                const dataArray = new Uint8Array(analyser.frequencyBinCount);
+                
+                function detectarSopro() {
+                    analyser.getByteFrequencyData(dataArray);
+                    const volume = dataArray.reduce((a, b) => a + b) / dataArray.length;
+                    if (volume > 50) {
+                        soprarVelas();
+                    }
+                    requestAnimationFrame(detectarSopro);
+                }
+                detectarSopro();
+            }).catch(() => {});
+        }
+    </script>
+</body>
+</html>
